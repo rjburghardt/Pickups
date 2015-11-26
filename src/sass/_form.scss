@@ -1,0 +1,61 @@
+.form {
+  background-color: red;
+
+  > div {
+    display: flex;
+    background-color: teal;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @include wider-than(1000px) {
+      width: 960px;
+    }
+    
+    .inputs {
+      border: 1px white solid;
+      padding: 2em;
+      margin: 1em;
+    }
+
+    h1 {
+      margin: 5px;
+    }
+
+    form {
+      background-color: orange;
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      justify-content: center;
+      
+      > select, input, textarea {
+        display: block;
+        margin: 5px;
+      }
+      
+      select {
+        font-size: 1.5em;
+      }
+
+      .buttons {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+
+        > button {
+          width: 100px;
+          margin: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+.login {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

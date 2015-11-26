@@ -1,0 +1,27 @@
+.game-view {
+  display: flex;
+  flex-direction: column;
+
+
+  @include wider-than(800px) {
+    flex-direction: row;
+  }
+
+  > .map {
+    display: hidden;
+
+    @include wider-than(800px) {
+      flex: 7; 
+    }
+  }
+
+  > aside {
+    flex: 3;
+    background-color: purple;
+    height: 100%;
+
+    input {
+      display: block;
+    }
+  }
+}

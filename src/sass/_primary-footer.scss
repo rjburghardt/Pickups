@@ -1,0 +1,57 @@
+.primary-footer {
+  background-color: maroon;
+  
+  > div {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    padding: 2em;
+    background-color: darkgreen;
+
+    @include wider-than(1000px) {
+      width: 960px;
+      padding: 2em;      
+    }
+    
+
+    .social {
+        text-align: center;
+        
+      @include wider-than(1000px) {
+        transform: translateX(7em);
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      a {
+        display: block;
+        margin: 5px 0;
+      }
+    } 
+
+    .legal {
+      text-align: center;
+      position: absolute;
+      right: 5px;
+
+      
+      @include wider-than(1000px) {
+        position: absolute;
+        right: 5em;
+      }
+      
+      h1 {
+        margin: 0;
+        margin-bottom: 3px;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+  }
+
+}

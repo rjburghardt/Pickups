@@ -1,0 +1,55 @@
+ .search {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+    .buttons {
+      margin: 1em;
+    }
+
+  .game-list {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    
+    > h1 {
+      margin: 0 auto;
+    }
+
+    > .game {
+      padding: 0.5em;
+      margin: 1.25em;
+      text-align: center;
+      border: 1px white solid;
+      
+      > span {
+        display: inline-block;
+        margin: 0.5em;
+      }
+
+      > a {
+        border: 1px white solid;
+        padding: 5px;
+        display: inline-block;
+      }
+    }
+  }
+
+  > .game-nav {
+    margin: 1em auto;
+    text-align: center;
+    background-color: darkgreen;
+    
+    > button {
+      padding: 0.5em;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    > span {
+      margin: 0 3em;
+      font-size: 1.5em;
+      display: inline-block;
+    }
+  }
+}

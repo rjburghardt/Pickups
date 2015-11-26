@@ -1,0 +1,96 @@
+.hero {
+  background-color: maroon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 600px;
+
+  > div {
+    margin: 0 auto;
+    position: relative;
+    background-color: lightblue;
+
+    @include wider-than(1000px) {
+      width: 960px;
+    }
+
+    h1 {
+        text-align: center;
+
+        @include wider-than(1000px) {
+          transform: translateY(-1em) 
+        }
+
+    }
+
+    p {
+        margin: 0 auto;
+        text-align: center;
+
+      @include wider-than(1000px) {
+        width: 870px;        
+      }
+
+    }
+    
+    .inputs {
+      text-align: center;
+      background-color: purple;
+      display: flex;
+      height: 30px;
+      margin-top: 300px;
+      justify-content: center;
+      align-items: center;
+      
+      @include wider-than(1000px) {
+        margin: 0 auto;
+        transform: none;
+        display: block;
+        height: auto;
+      }
+
+      input {
+        display: none;
+
+        @include wider-than(1000px){
+          display: inline-block;
+          width: 750px;
+          margin-right: 20px;
+          margin-top: 40px;          
+        }
+
+      }
+      
+       > .search-btn {
+        padding: 4px 8px;
+        
+        @include wider-than(960px) {
+          width: 179px;
+        }
+
+      }
+
+      h3 {
+        margin: 0px 30px;
+
+
+        @include wider-than(1000px) {
+          text-align: center;
+          margin: 20px 0;
+        }
+      }
+
+      .create {
+        text-align: center;
+        padding: 4px 17px;
+
+
+        @include wider-than(1000px) {
+          width: 250px;
+          padding: 4px;
+        }
+      }
+    }
+
+  }
+}

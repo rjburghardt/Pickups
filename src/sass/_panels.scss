@@ -1,0 +1,41 @@
+.panels {
+  background-color: gold;
+
+  > div {
+
+    background-color: teal;
+    margin: 0 auto;
+    
+    @include wider-than(1000px) {
+      width: 960px;      
+
+    }
+
+    .media {
+      background-color: lightgreen;
+      display: flex;
+      align-items: center;
+      
+      .img {
+        width: 100px;
+        height: 70px;
+        margin: 5px;
+
+        @include wider-than(960px) {
+          width: 350px;
+          height: 300px;
+          margin: 20px;
+        }
+      }
+
+      .content {
+        flex: 1;
+        margin: 20px;
+
+        > h1 {
+          margin: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.join-game {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  margin: 0 auto;
+  align-items: left;
+
+  h1 {
+    margin: 5px auto;
+  }
+  
+  .profile-info {
+    display: flex;
+
+    img {
+      margin: 0.5em;
+    }
+
+    .contact {
+      line-height: 2em;
+      margin: 2em 0;
+    }
+  }
+
+  .game-info {
+    margin: 0.5em;
+
+    > .details {
+      > * {
+        line-height: 2em;
+      }
+    }
+    
+    > h2 {
+      margin: 10px 0 0 0;
+      font-size: 1.5em;
+    }
+
+    .equipment {
+      border: 1px white solid;
+      margin: 10px 0;
+    }
+
+    .comments {
+      border: 1px white solid;
+      margin: 10px 0;
+      padding: 1em;
+      line-height: 1.25em;
+    }
+  }
+
+  .join {
+    margin: 0.5em 0 auto;
+    text-align: center;
+    background-color: darkgreen;
+    display: flex;
+    justify-content: space-around;
+
+    > button {
+      width: 6em;
+      padding: 0.5em;
+    }
+  }
+
+}
+
+.game-view {
+  
+  > .map {
+    display: block;
+    height: 300px;
+    background-color: lightblue;
+
+    @include wider-than(800px) {
+      height: auto;
+    }
+  }
+}

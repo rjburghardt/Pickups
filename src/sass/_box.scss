@@ -1,0 +1,30 @@
+ .box {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+
+  > h1 {
+    margin: 1em auto;
+  }
+
+  form {
+    margin: 0.5em auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    select {
+      margin: 0.5em auto;
+    }
+
+    input {
+      margin: 0.5em auto;
+      
+    }
+
+    > .buttons {
+      margin: 1em;
+    }
+  }
+}

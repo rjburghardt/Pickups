@@ -1,0 +1,103 @@
+.profile {
+  background-color: blue;
+  padding: 1em;
+
+  @include wider-than(1000px) {
+    display: flex;
+    padding: 5em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+    line-height: 1.75em;
+  }
+
+  .profile-information {
+
+    @include wider-than(1000px){
+      flex: 2;
+      
+    }
+
+
+    img {
+      margin-bottom: 1em;
+    }
+
+    :nth-child(5) {
+      margin-bottom: 1.5em;
+
+      @include wider-than(1000px) {
+        margin-bottom: 3em; 
+      }
+
+    }
+
+    .profile-bio {
+
+      @include wider-than(1000px) {
+        padding: 1em;
+        margin-right: 2em;
+        line-height: 1.5em;
+        border: 1px white solid;
+        background-color: green;  
+      }
+
+      h2 {
+        margin-bottom: 1.25em;        
+      }
+    }
+  }
+
+  .profile-games {
+    flex: 4;
+
+    .open-game {
+      padding: 0.5em;
+      margin: 0.5em;
+
+      @include wider-than(1000px) {
+        margin: 1em;
+        padding: 2em;
+        border: 1px white solid;
+      }
+
+      background-color: red;
+
+      > * {
+        margin: 1em;
+
+        @include wider-than(1000px) {
+          margin: 0 2.5em 0 0;          
+        }
+      }
+    }
+
+    .past-game {
+      padding: 0.5em;
+      margin: 0.5em;
+
+      @include wider-than(1000px) {
+        margin: 1em;
+        padding: 2em;
+        border: 1px white solid;
+
+      }
+
+      background-color: orange; 
+
+      > * {
+        margin: 1em;
+
+        @include wider-than(1000px) {
+          margin: 0 2.5em 0 0; 
+        }
+
+      }
+    }
+  }
+}

@@ -1,56 +1,72 @@
 import React from 'react'
 import { render } from 'react-dom'
+import $ from 'jquery'
+import UserProfile from './userProfile'
+import ProfileGames from './userGames'
+import cookie from 'js-cookie'
+
+const user = cookie.get('user')
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user:[],
+      game: []
+    }
+  }
+
   render() {
+
+    if (!user && window.location.hash == '#/pickups/profile/') {
+      window.location.href = '/login.html'
+      return
+    }
+
     return (
       <div className="profile">
-        <div className="profile-information">
-          <h1>Player Profile</h1>
-          <img src="http://placehold.it/240x220" alt="prof pic" />
-          <h3>FirstLast</h3>
-          <h3>City, St</h3>
-          <h3>email</h3>
-          <div className="profile-bio">
-            <h2>Bio</h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus minima quisquam consequuntur dicta labore eos, ipsa consectetur cumque dolorum odit nobis, voluptatibus quam molestiae blanditiis? Doloribus ad, blanditiis impedit. Pariatur!</p>
-          </div>
-        </div>
-        <div className="profile-games">
-          <h1>Open Games</h1>
-          <div className="open-games">
-            <div className="open-game">
-              <span>Name of Game</span><span>Location</span><span>Date & Time</span>
-              <button>More info</button>
-              <button>Edit</button>
-            </div>
-            <div className="open-game">
-              <span>Name of Game</span><span>Location</span><span>Date & Time</span>
-              <button>More info</button>
-              <button>Edit</button>
-            </div>
-            <div className="open-game">
-              <span>Name of Game</span><span>Location</span><span>Date & Time</span>
-              <button>More info</button>
-              <button>Edit</button>
-            </div>
-          </div>
-          <div className="past-games">
-            <h1>Past Games</h1>
-            <div className="past-game">
-              <span>Name of Game</span><span>Location</span><span>Date & Time</span><button>More info</button>
-            </div>
-            <div className="past-game">
-              <span>Name of Game</span><span>Location</span><span>Date & Time</span><button>More info</button>
-            </div>
-            <div className="past-game">
-              <span>Name of Game</span><span>Location</span><span>Date & Time</span><button>More info</button>
-            </div>
-          </div>
-        </div>
+        <UserProfile data={this.state.user} />
+        <ProfileGames data={this.state.game} />
       </div>
     )
   }
+
+  findGames(userId) {
+    $.get('http://localhost:3000/api/ownership/by-user/' + userId)
+      .then(game => {
+        game.forEach(game => {
+          $.get('http://localhost:3000/api/game/' + game.gameId)
+            .then(game => {
+              this.setState({ game: this.state.game.concat(game) })
+            })
+
+            .fail((xhr, status, data) => {
+              console.error(this.props.url, stats, err.toString())
+            })
+        })
+      })
+
+      .fail((xhr, status, data) => {
+        console.error(this.props.url, stats, err.toString())
+      })
+  }
+
+  loadUserFromServer(userId) {
+    $.get('http://localhost:3000/api/user/' + userId)
+      .then(user => {
+        this.setState({ user })
+      })
+
+      .fail((xhr, status, data) => {
+        console.error(this.props.url, stats, err.toString())
+      })
+  }
+
+  componentDidMount() {
+    this.loadUserFromServer(this.props.userId)
+    this.findGames(this.props.userId)
+  }
+
 }
 
 export default Profile

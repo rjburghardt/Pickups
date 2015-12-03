@@ -6,7 +6,7 @@ class Owner extends React.Component {
     const ownerNode = this.props.data.map(owner => {
       return (
         <div key={owner.userId}>
-            <img src={owner.picture} width="200" height="200" alt="Profile Pic" />
+            <a href={"/#/pickups/profile/" + owner.userId}><img src={owner.picture} width="200" height="200" alt="Profile Pic"  /></a>
             <div className="contact">
               <h4>{owner.firstName}</h4>
               <h4>{owner.lastName}</h4>

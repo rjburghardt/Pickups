@@ -24,6 +24,10 @@ import routes from './routes'
 import defaultApi from './routes/api'
 app.use('/api', routes, defaultApi)
 
+// Login
+import login from './routes/login'
+app.use('/auth', login)
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found')

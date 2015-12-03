@@ -1,9 +1,8 @@
 .form {
-  background-color: red;
+  background-color: $secondary-dark;
 
   > div {
     display: flex;
-    background-color: teal;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
@@ -14,9 +13,15 @@
     }
     
     .inputs {
+      background-color: $primary-dark;
       border: 1px white solid;
-      padding: 2em;
-      margin: 1em;
+      padding: 1em;
+      margin: 0.5em;
+
+      @include wider-than(1000px) {
+        padding: 2em;
+        margin: 1em;
+      }
     }
 
     h1 {
@@ -24,7 +29,6 @@
     }
 
     form {
-      background-color: orange;
       display: flex;
       flex-direction: column;
       padding: 5px;
@@ -36,7 +40,7 @@
       }
       
       select {
-        font-size: 1.5em;
+        font-size: 1em;
       }
 
       .buttons {
@@ -44,7 +48,7 @@
         display: flex;
         justify-content: center;
 
-        > button {
+        > button, .button {
           width: 100px;
           margin: 0.5em;
         }
@@ -54,8 +58,37 @@
 }
 
 .login {
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include wider-than(1000px) {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: radial-gradient(rgba(0, 0, 0, 0.8),
+      rgba(38, 102, 195, 0.39)),
+      url(../images/soccer.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+  }
+  
+
+    #fail {
+      display: none;
+      color: #dc143c;
+    }
+}
+
+.signup {
+
+  @include wider-than(1000px) {
+    background: radial-gradient(rgba(0, 0, 0, 0.8),
+      rgba(38, 102, 195, 0.39)),
+      url(../images/hero.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+  }
+  
 }

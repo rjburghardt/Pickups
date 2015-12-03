@@ -4,13 +4,15 @@ import Map from '../../Map/Map'
 import $ from 'jquery'
 import Game from './Game'
 import Owner from './Owner'
+import cookie from 'js-cookie'
 
 class Join extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      owner:[]
+      owner:[],
+      user: []
     }
   }
 
@@ -23,12 +25,25 @@ class Join extends React.Component {
           <Owner data={this.state.owner} />
           <Game data={this.state.data} />
           <div className="join">
-            <button>Join In!</button>
-            <button><a href="/Pickups/Search">Go Back</a></button>
+              <input className="userId" type="hidden" name="userId" value={this.state.user.user_id} />
+              <input className="gameId" type="hidden" name="gameId" value={this.props.gameId} />
+              <button id="join-in">Join In!</button>
+            <a className="button" href="/#/pickups/search">Go Back</a>
           </div>
         </aside>
       </div>
     )
+  }
+
+  userSession() {
+    let userCookie = cookie.get('user')
+
+    if (userCookie) {
+      const user = JSON.parse(userCookie.slice(2))
+      this.setState({ user })
+    } else {
+      window.location.href = 'http://localhost:3000/login.html'
+    }
   }
 
   loadGameFromServer(id) {
@@ -45,8 +60,7 @@ class Join extends React.Component {
   }
 
   findOwner(gameId) {
-    let url = '/api/ownership/' + gameId
-    console.log(url);
+    let url = '/api/ownership/by-game/' + gameId
 
     $.get(url)
       .then((owner) => {
@@ -54,7 +68,6 @@ class Join extends React.Component {
 
         $.get(url)
           .then((owner) => {
-            console.log(owner)
             this.setState({ owner })
           })
 
@@ -69,13 +82,10 @@ class Join extends React.Component {
       })
   }
 
-  componentDidMount() {
-
-    let url = document.URL
-    let gameId = url.substring(url.lastIndexOf('/') + 1)
-
-    this.loadGameFromServer(gameId)
-    this.findOwner(gameId)
+  componentDidMount(gameId) {
+    this.userSession()
+    this.loadGameFromServer(this.props.gameId)
+    this.findOwner(this.props.gameId)
   }
 }
 

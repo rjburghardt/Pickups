@@ -1,9 +1,8 @@
 .panels {
-  background-color: gold;
+  background-color: $primary-dark;
+  border-top: 1px #fff solid;
 
   > div {
-
-    background-color: teal;
     margin: 0 auto;
     
     @include wider-than(1000px) {
@@ -12,7 +11,7 @@
     }
 
     .media {
-      background-color: lightgreen;
+      background-color: $primary-dark;
       display: flex;
       align-items: center;
       
@@ -20,10 +19,12 @@
         width: 100px;
         height: 70px;
         margin: 5px;
+        background-size: cover;
+        background-repeat: no-repeat;
 
         @include wider-than(960px) {
-          width: 350px;
-          height: 300px;
+          width: 310px;
+          height: 260px;
           margin: 20px;
         }
       }
@@ -33,7 +34,8 @@
         margin: 20px;
 
         > h1 {
-          margin: 10px;
+          font-family: 'Russo One', Arial;
+          border-bottom: 1px $primary-color solid;
         }
       }
     }

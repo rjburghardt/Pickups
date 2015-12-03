@@ -5,6 +5,14 @@
 
     .buttons {
       margin: 1em;
+
+      > button, .button {
+        width: 100px;
+      }
+
+      > * + * {
+        margin-left: 20px;
+      }
     }
 
   .game-list {
@@ -21,16 +29,28 @@
       margin: 1.25em;
       text-align: center;
       border: 1px white solid;
+      background-color: $secondary-dark;
       
       > span {
         display: inline-block;
         margin: 0.5em;
       }
 
+      > h4 {
+        font-family: 'Russo One', Arial;
+        font-size: 18pt;
+      }
+
       > a {
         border: 1px white solid;
         padding: 5px;
         display: inline-block;
+        background-color: $primary-color;
+      }
+
+      > button, .button {
+        border: none;
+        margin-bottom: 0.5em;
       }
     }
   }
@@ -38,9 +58,8 @@
   > .game-nav {
     margin: 1em auto;
     text-align: center;
-    background-color: darkgreen;
     
-    > button {
+    > button, .button {
       padding: 0.5em;
       border-radius: 3px;
       display: inline-block;

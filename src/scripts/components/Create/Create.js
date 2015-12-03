@@ -1,9 +1,16 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Map from '../Map/Map.js'
+import cookie from 'js-cookie'
 
-class Create extends React.Component {
-  render() {
+const user = cookie.get('user')
+
+var Create = new React.createClass ({
+  render: function() {
+    if (!user && window.location.hash == '#/pickups/create') {
+      window.location.href = '/login.html'
+      return
+    }
     return (
       <div className="game-view">
         <Map />
@@ -11,11 +18,11 @@ class Create extends React.Component {
           <h1>Create a Game</h1>
           <form action="/api/game" method="post">
             <h2>Game Name</h2>
-            <input type="text" name="gameName" />
-            Sport <input type="text" name="gameType" />
-            Address <input type="text" name="address" />
-            City <input type="text" name="city" />
-            State <select name="state">
+            <input type="text" name="gameName" required />
+            Sport <input type="text" name="gameType" required />
+            Address <input type="text" name="address" id="address" required />
+            City <input type="text" name="city" id="city" required />
+            State <select name="state" id="state" required >
               <option value="AL">AL</option>
               <option value="AK">AK</option>
               <option value="AZ">AZ</option>
@@ -68,11 +75,12 @@ class Create extends React.Component {
               <option value="WI">WV</option>
               <option value="WY">WY</option>
             </select> <br />
-            Date and time <input type="date" name="date" /><input type="time" name="time" />
+            <button id="map-button">Map Address</button>
+            Date and time <input type="date" name="date" /><input type="time" name="time" required />
             <h2>Game Comments</h2>
-            <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+            <textarea name="comments" id="comments" cols="30" rows="10" required ></textarea>
             <h2>Total Number of Players needed:</h2>
-            <input type="number" min="1" name="players" />
+            <input type="number" min="1" name="players" required />
             <div className="buttons">
               <button>Create</button>
               <button type="reset">Reset</button>
@@ -81,7 +89,7 @@ class Create extends React.Component {
         </aside>
       </div>
     )
-  }
-}
+  },
+})
 
 export default Create

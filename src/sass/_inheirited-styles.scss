@@ -1,11 +1,16 @@
+$primary-dark: #252423;
+$primary-color: #257eff;
+$secondary-dark: #545961;
+
 html {
     box-sizing: border-box;
-    color: black;
-    font: 10pt 'Open Sans', Arial;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14pt;
+    font-family: Lato, Arial;
     font-weight: normal;
 
     @include wider-than(1000px) {
-      font-size: 12pt;
+      font-size: 14pt;
     }
 }
 
@@ -24,13 +29,23 @@ p, h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-button {
-  background-color: blue;
-  box-shadow: 0px 0px 2px 2px #000;
+button, .button {
+  background-color: $primary-color;
+  box-shadow: 0px 0px 1px 1px #000;
   border: none;
   border-radius: 1px;
+  text-align: center;
 }
 
 textarea {
   resize: none;
+  background: $secondary-dark;
+}
+
+input {
+  background: $secondary-dark;
+}
+
+select {
+  background: $secondary-dark;
 }

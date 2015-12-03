@@ -7,17 +7,18 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="/vendor/normalize-css/normalize.css">
   <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Russo+One|Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav class="primary-nav">
     <div>
-      <a href="/" class="logo">Pickups</a>
+      <a href="/" class="logo">pickups</a>
       <div class="menu"><i class="fa fa-bars fa-2x"></i></div>
       <div class="nav-bar">
         <a href="/#/pickups/search">Search</a>
         <a href="/#/pickups/create">Create</a>
-        <a href="login.html">Login</a>
-        <a href="/#/pickups/profile">Profile</a>
+        <a href="login.html" id="userLogin">Login</a>
+        <a id="profile">Profile</a>
         <a href="signup.html">Sign Up</a>
       </div>
     </div>
@@ -25,32 +26,31 @@
   <main>
     <div class="hero">
       <div>
-        <h1>This is the hero that has these words</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel sed rem earum magnam quibusdam tempora, repudiandae voluptatibus molestiae, tenetur asperiores fuga aliquam consectetur aliquid! Ea quidem quibusdam qui deserunt, dolorem!</p>
+        <h1>Start Playing Today!!</h1>
+        <p>Look for games in your area, and join in! OR! Start new games with others in your area!</p>
         <div class="inputs">
-          <input type="search" name="search" placeholder="Search pickup games NOW!">
-          <button class="search-btn">Search Now!</button>
+          <a class="search-btn button" href="/#/pickups/search">Search Games Now!</a>
           <h3>Or</h3>
-          <button class="create btn">Create Your Own!</button>
+          <a class="create btn button" href="/#/pickups/create">Start Your Own!</a>
         </div>
       </div>
     </div>
     <div class="panels">
       <div>
         <div class="media">
-          <div class="img">Lorem ipsum dolor sit amet. Image goes here
+          <div class="img" style="background-image: url(./images/volleyball.jpg)">
           </div>
           <div class="content">
-            <h1>Title</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto accusantium, cupiditate qui neque mollitia dolorem asperiores eaque perferendis aliquam et reiciendis minus magnam quisquam ipsum cumque eos quas, nesciunt quis!</p>
+            <h1>Organize</h1>
+            <p>Organize your games with friends. Use our app to organize what equipment you'll need, where you'll meet using google maps, and anything else you might need!</p>
           </div>
         </div>
         <div class="media">
           <div class="content">
-            <h1>Title</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto accusantium, cupiditate qui neque mollitia dolorem asperiores eaque perferendis aliquam et reiciendis minus magnam quisquam ipsum cumque eos quas, nesciunt quis!</p>
+            <h1>Have Fun!</h1>
+            <p>Spend your time more efficiently on the courts, fields, or anywhere else you may want to play your pickups. Pickups are only limited by your imagination, use it to organize anything from basketball games to badminton games. Whatever you want to play, whenever you want.</p>
           </div>
-          <div class="img">Lorem ipsum dolor sit amet. Image goes here
+          <div class="img" style="background-image: url(./images/soccer.jpg)">
           </div>
         </div>
       </div>

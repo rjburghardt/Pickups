@@ -7,18 +7,19 @@
 
   h1 {
     margin: 5px auto;
+    font-family: 'Russo One', Arial;
   }
   
   .profile-info {
     display: flex;
 
-    img {
-      margin: 0.5em;
-    }
-
     .contact {
       line-height: 2em;
       margin: 2em 0;
+
+      > h4 {
+        font-size: 16pt;
+      }
     }
   }
 
@@ -31,14 +32,9 @@
       }
     }
     
-    > h2 {
-      margin: 10px 0 0 0;
-      font-size: 1.5em;
-    }
-
-    .equipment {
-      border: 1px white solid;
+    h2 {
       margin: 10px 0;
+      font-size: 1.5em;
     }
 
     .comments {
@@ -46,17 +42,17 @@
       margin: 10px 0;
       padding: 1em;
       line-height: 1.25em;
+      background-color: $primary-dark;
     }
   }
 
   .join {
     margin: 0.5em 0 auto;
     text-align: center;
-    background-color: darkgreen;
     display: flex;
     justify-content: space-around;
 
-    > button {
+    > button, .button {
       width: 6em;
       padding: 0.5em;
     }

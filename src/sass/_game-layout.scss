@@ -3,22 +3,38 @@
   flex-direction: column;
 
 
-  @include wider-than(800px) {
+  @include wider-than(1000px) {
     flex-direction: row;
+    height: 920px;
   }
 
-  > .map {
+   .map {
     display: hidden;
+    
 
-    @include wider-than(800px) {
-      flex: 7; 
+    @include wider-than(1000px) {
+      flex: 7;
+      height: 920px;
+      position: fixed;
+      top: 49px;
+      left: 0;
+      right: 100px;
+      bottom: 0;
     }
   }
 
   > aside {
     flex: 3;
-    background-color: purple;
-    height: 100%;
+    background-color: $primary-dark;
+
+    @include wider-than(1000px) {
+      position: fixed;
+      width: 500px;
+      right: 0;
+      top: 49px;
+      bottom: 0;
+      overflow: scroll;
+    }
 
     input {
       display: block;
